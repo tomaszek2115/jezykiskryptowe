@@ -1,0 +1,4 @@
+RAPORT ALGORYTMOW SORTOWANIA
+bubbleSort --- 1.9442856311798096 --- seconds
+insertionSort --- 0.0 --- seconds
+quickSort --- 0.006133317947387695 --- seconds
