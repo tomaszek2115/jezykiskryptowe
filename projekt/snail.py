@@ -90,7 +90,7 @@ class Snail:
     def drawSmile(self):
         center_x, center_y = self.position_x - self.segment_length / 4, self.position_y + 35
         for x in range(-int((self.segment_length / 12)), int(self.segment_length / 12)):
-            a = 0.077222605 * (0.647478803 ** self.n) # 1 - 0.05 10 - 0.001 2 - 0.02 3 - 0.01 4 - 0.006 5 - 0.004 6 - 0.003
+            a = 0.077222605 * (0.647478803 ** self.n)
             y = int(a * x ** 2)
             if y < 10:
                 self.draw.point((center_x + x, center_y - y), fill = "black") 
@@ -103,6 +103,11 @@ class Snail:
         self.drawAnthenas()
         self.image.show()
 
-n = int(input("Podaj liczbe n: "))
+while True:
+    try:
+        n = int(input("Podaj liczbe calkowita n: "))
+        break
+    except ValueError:
+        print("To nie jest poprawna liczba calkowita. Sprobuj ponownie.")
 snaily = Snail(n)
 snaily.drawSnail()
