@@ -26,7 +26,7 @@ pause
 goto menu
 
 :generateReport
-
+start "" "http://127.0.0.1:5500/index.html"
 
 :close
 timeout /nobreak /t 1 >nul

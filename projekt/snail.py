@@ -14,7 +14,7 @@ class Snail:
         self.segment_length = 50 # Jednostka dlugosci n
         self.eye_radius = 5
         self.anthenas_radius = 2 + self.n
-        self.image = Image.new("RGB", (1920, 1080), "white") # Utworzenie rysunku
+        self.image = Image.new("RGB", (250 + n * 150, 250 + n * 150), "white") # Utworzenie rysunku
         self.draw = ImageDraw.Draw(self.image) # Metoda rysujaca
         self.position_x = (50 + self.n * 50) # Aktualna pozycja "rysowania"
         self.position_y = (50 + self.n * 50)
