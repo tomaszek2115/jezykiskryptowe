@@ -118,7 +118,7 @@ class Snail:
             n = None
 
 try:
-    with open("input.txt", "r") as file:
+    with open("input/input.txt", "r") as file:
         lines = file.readlines()
         if lines:
             n = int(lines[-1])
