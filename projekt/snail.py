@@ -1,5 +1,6 @@
 # Biblioteka PIL umozliwia tworzenie rysunkow
 
+import datetime
 from PIL import Image, ImageDraw
 
 # Klasa snail
@@ -101,13 +102,36 @@ class Snail:
         self.drawEyes()
         self.drawSmile()
         self.drawAnthenas()
-        self.image.show()
+        timestamp = datetime.datetime.now().strftime("%Y%d%m%H%M%S")
+        image_path = f"output/image_{timestamp}.png"
+        self.image.save(image_path)
+        image_path = f"backup/image_{timestamp}.png"
+        self.image.save(image_path)
+        image_path = f"image_{timestamp}.png"
+        try:
+            with open("image_names.txt", "a") as file:
+                 file.write(image_path + '\n')
+        except FileNotFoundError:
+            print("error")
+        except ValueError:
+            print("error")
+            n = None
 
-while True:
-    try:
-        n = int(input("Podaj liczbe calkowita n: "))
-        break
-    except ValueError:
-        print("To nie jest poprawna liczba calkowita. Sprobuj ponownie.")
-snaily = Snail(n)
-snaily.drawSnail()
+try:
+    with open("input.txt", "r") as file:
+        lines = file.readlines()
+        if lines:
+            n = int(lines[-1])
+        else:
+            print("Error: File is empty")
+            n = None
+except FileNotFoundError:
+    print("Error: FileNotFoundError")
+except ValueError:
+    print("Error: ValueError")
+    n = None
+
+
+if n is not None:
+    snaily = Snail(n)
+    snaily.drawSnail()
